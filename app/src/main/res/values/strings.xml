@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">SmartWeather</string>
+    <string name="title_activity_settings">Einstellungen</string>
+
+    <!-- Preference Titles -->
+    <string name="owm_header">OpenWeatherMap</string>
+    <string name="design_header">App-Design</string>
+
+    <!-- OWM Preferences -->
+    <string name="owmkey_title">OpenWeatherMap API-Key</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Design Preferences -->
+    <string name="dark_title">Dunkles Theme Aktivieren</string>
+    <string name="customImg_title">Wetter anepasste Hintergrundbilder</string>
+    <string name="customImg_summary_on">Zeigt Wetterangepasste Hintergrundbilder
+    </string>
+    <string name="customImg_summary_off">Zeigt keine Wetterangepasste Hintergrundbilder</string>
+</resources>

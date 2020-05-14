@@ -1,0 +1,2 @@
+rootProject.name='SmartWeather'
+include ':app'
