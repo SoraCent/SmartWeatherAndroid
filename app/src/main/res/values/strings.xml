@@ -5,6 +5,7 @@
     <!-- Preference Titles -->
     <string name="owm_header">OpenWeatherMap</string>
     <string name="design_header">App-Design</string>
+    <string name="weather_settings">Wetter Einstellungen</string>
 
     <!-- OWM Preferences -->
     <string name="owmkey_title">OpenWeatherMap API-Key</string>
@@ -13,7 +14,23 @@
     <!-- Design Preferences -->
     <string name="dark_title">Dunkles Theme Aktivieren</string>
     <string name="customImg_title">Wetter anepasste Hintergrundbilder</string>
-    <string name="customImg_summary_on">Zeigt Wetterangepasste Hintergrundbilder
-    </string>
+    <string name="customImg_summary_on">Zeigt Wetterangepasste Hintergrundbilder</string>
     <string name="customImg_summary_off">Zeigt keine Wetterangepasste Hintergrundbilder</string>
+
+    <!-- Activity Main Preferences -->
+    <string name="weather_title">Wetter in</string>
+    <string name="temperature_title">Temperatur</string>
+    <string name="min_temp_title">Min. Temperatur:</string>
+    <string name="max_temp_title">Max. Temperatur:</string>
+    <string name="feel_temp_title">Gefühlte Temperatur:</string>
+    <string name="pressure_title">Luftdruck:</string>
+    <string name="humidity_title">Luftfeuchtigkeit:</string>
+    <string name="sunrise_title">Sonnenaufgang:</string>
+    <string name="sunset_title">Sonnenuntergang:</string>
+    <string name="daylight_title">Tageslicht:</string>
+    <string name="wind_speed_title">Wind Geschwindigkeit:</string>
+    <string name="wind_deg_title">Wind Richtung:</string>
+    <string name="last_updated_content">Zuletzt Aktualisiert:</string>
+
+    <string name="reload_toaster">Daten Aktualisiert</string>
 </resources>

@@ -9,6 +9,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -18,10 +21,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.soracent.smartweather.helper.CustomBackground;
 import com.soracent.smartweather.helper.WindDirection;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -39,6 +46,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
+    ScrollView WeatherMainScrollView;
     ConstraintLayout WeatherMain;
     TextView WeatherTitle;
     TextView TemperatureContent;
@@ -67,8 +75,6 @@ public class MainActivity extends AppCompatActivity {
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 int connectionResponseCode = connection.getResponseCode();
 
-                Log.i("ADRESSE : ", address[0]);
-                Log.i("RESPONSE: ", Integer.toString(connectionResponseCode));
                 if (connectionResponseCode == 200) {
                     // Alles Oke
                     connection.connect();
@@ -84,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
                         content = content + ch;
                         data = isr.read();
                     }
-                    Log.i("Content", content);
                     return content;
                 }
                 else {
@@ -134,10 +139,9 @@ public class MainActivity extends AppCompatActivity {
                 CityName = "Bern";
             }
 
+
             SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
             String Api_key = sharedPref.getString("owmKey", "");
-
-            Log.i("API-KEYY: ", Api_key);
 
             WeatherCall(CityName, Api_key);
         } else {
@@ -159,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Json Wetter Call
     public void WeatherCall(String CityName, String Api_key) {
+        WeatherMainScrollView = findViewById(R.id.WeatherMainScrollView);
         WeatherMain = findViewById(R.id.WeatherMain);
         WeatherTitle = findViewById(R.id.WeatherTitle);
         TemperatureContent = findViewById(R.id.TemperatureContent);
@@ -210,7 +215,8 @@ public class MainActivity extends AppCompatActivity {
                 WeatherMain.setVisibility(View.VISIBLE);
                 JSONObject jsonObject = new JSONObject(content);
                 // Alles OK
-                String main = "";
+                String WeatherMainInfo = "";
+                String WeatherId = "";
                 String description = "";
                 String tempMain = "";
                 String cityName = "";
@@ -234,7 +240,8 @@ public class MainActivity extends AppCompatActivity {
 
                 for (int i = 0; i < weatherArray.length(); i++) {
                     JSONObject weatherPart = weatherArray.getJSONObject(i);
-                    main = weatherPart.getString("main");
+                    WeatherId = weatherPart.getString("id");
+                    WeatherMainInfo = weatherPart.getString("main");
                     description = weatherPart.getString("description");
                     IconId = weatherPart.getString("icon");
                 }
@@ -285,6 +292,8 @@ public class MainActivity extends AppCompatActivity {
 
                 // Get City Name
                 cityName = jsonObject.getString("name");
+                String cityTitle = getString(R.string.weather_title) + " " + cityName + ", " + countryCode;
+                setCountryIcon(countryCode);
 
                 // Set WeatherIcon
                 String ImgUrl = "https://openweathermap.org/img/wn/" + IconId + "@2x.png";
@@ -301,9 +310,6 @@ public class MainActivity extends AppCompatActivity {
                 sunDifferenceMilli = sunDifferenceMilli % 3600;
                 Long sunDifferenceMinutes = Math.abs(sunDifferenceMilli / 60);
 
-                Log.i("SunDifferenceHours: ", sunDifferenceHours.toString());
-                Log.i("SunDifferenceMinutes: ", sunDifferenceMinutes.toString());
-
                 // Convert Sunrise and Sunset and LastUpdate
                 Date SunriseDate = new Date(SunriseMilli);
                 Date SunsetDate = new Date(SunsetMilli);
@@ -314,8 +320,19 @@ public class MainActivity extends AppCompatActivity {
                 String Sunset = sunDateFormat.format(SunsetDate);
                 String lastUpdate = lastUpdateFormat.format(LastUpdateDate);
 
-                //WeatherMain.setBackgroundResource(R.drawable.ash_background);
-                WeatherTitle.setText("Wetter in " + cityName + ", " + countryCode);
+                // set Last updated Text
+                String lastUpdateText = getString(R.string.last_updated_content) + " " + lastUpdate;
+
+                // Custom Background
+                SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                Boolean custom_img = sharedPref.getBoolean("customImg", true);
+                if (!WeatherMainInfo.isEmpty() && WeatherMainInfo != null && custom_img == true) {
+                    CustomBackground.setCustomBackground(WeatherMainInfo, WeatherId, WeatherMainScrollView, WeatherMain);
+                } else {
+                    WeatherMainScrollView.setBackgroundResource(0);
+                }
+
+                WeatherTitle.setText(cityTitle);
                 TemperatureContent.setText(tempMain + "°C");
                 WeatherDescription.setText(description);
                 minTemp.setText(minTemperature + "°C");
@@ -328,7 +345,7 @@ public class MainActivity extends AppCompatActivity {
                 daylightContent.setText(sunDifferenceHours + " Std. " + sunDifferenceMinutes + " Min.");
                 windSpeedContent.setText(windSpeed + " m/s");
                 windDegContent.setText(windDir + " ("+ windDeg + "°)");
-                lastUpdateContent.setText("Zuletzt Aktualisiert: " + lastUpdate);
+                lastUpdateContent.setText(lastUpdateText);
 
             }
         } catch (Exception e) {
@@ -361,9 +378,40 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.RefreshButton) {
             mainCallFunction();
+            Context context = getApplicationContext();
+            CharSequence text = getString(R.string.reload_toaster);
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setCountryIcon(String countryCode) {
+        String countryIconUrl = "https://www.countryflags.io/" + countryCode + "/flat/64.png";
+
+        Picasso.get()
+                .load(countryIconUrl)
+                .into(new Target() {
+
+                    @Override
+                    public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                        Bitmap resizedBitmap = Bitmap.createScaledBitmap(bitmap, 96, 96, true);
+                        Drawable countryIcon = new BitmapDrawable(getResources(), resizedBitmap);
+                        WeatherTitle.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, countryIcon, null);
+                    }
+
+                    @Override
+                    public void onBitmapFailed(Exception e, Drawable errorDrawable) {
+                    }
+
+                    @Override
+                    public void onPrepareLoad(Drawable placeHolderDrawable) {
+                        WeatherTitle.setCompoundDrawablesWithIntrinsicBounds(0,0,0,0);
+                    }
+                });
     }
 
     private void noInternetAlert() {
