@@ -56,6 +56,7 @@ public class SearchActivity extends AppCompatActivity {
 
     public void getLocation() {
     }
+
     private void noCityEnteredAlert() {
         AlertDialog.Builder dialogBuilder;
         dialogBuilder = new AlertDialog.Builder(this);
