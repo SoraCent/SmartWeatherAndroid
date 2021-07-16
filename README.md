@@ -10,12 +10,11 @@ I made this App for a Course that we had in School.
 - Refresh by Shaking the phone
 
 ## Bugs or other
-- Only for Portrait modus, not Optimized for Landscape
+- Not Optimized for Landscape
 - Some Settings not implementet
 
 ## Upcoming Functions & Features
 - Darktheme
-- Landscape mode
 - GPS City locate
 
 # How to install and use
