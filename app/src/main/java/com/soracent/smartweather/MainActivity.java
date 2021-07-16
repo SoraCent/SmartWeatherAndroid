@@ -50,6 +50,7 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -240,7 +241,13 @@ public class MainActivity extends AppCompatActivity {
         int responseCode;
         Weather weather = new Weather();
         try {
-            content = weather.execute("https://api.openweathermap.org/data/2.5/weather?q=" + CityName + "&appid=" + Api_key + "&lang=De&units=metric").get();
+            String api_lang;
+            if(Locale.getDefault().getDisplayLanguage().equalsIgnoreCase("deutsch")) {
+                api_lang = "de";
+            } else {
+                api_lang = "en";
+            }
+            content = weather.execute("https://api.openweathermap.org/data/2.5/weather?q=" + CityName + "&appid=" + Api_key + "&lang=" + api_lang + "&units=metric").get();
 
             // Falls der Content ein Code ist parse es zum Int aber wenn Content der Call Content ist parse nichts
             try {
