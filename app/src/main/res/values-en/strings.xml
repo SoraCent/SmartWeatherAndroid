@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SmartWeather</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="owm_header">OpenWeatherMap</string>
+    <string name="design_header">App-Design</string>
+    <string name="weather_settings">Weather Settings</string>
+    <string name="owmkey_title">OpenWeatherMap API-Key</string>
+    <string name="reply_title">Default reply action</string>
+    <string name="dark_title">Activate Dark Theme</string>
+    <string name="customImg_title">Weather adjusted backgrounds</string>
+    <string name="customImg_summary_on">Shows Weather adjusted backgrounds</string>
+    <string name="customImg_summary_off">Doesn\'t Shows Weather adjusted backgrounds</string>
+    <string name="weather_title">Weather in</string>
+    <string name="temperature_title">Temperature</string>
+    <string name="min_temp_title">Min. Temperature:</string>
+    <string name="max_temp_title">Max. Temperature:</string>
+    <string name="feel_temp_title">Feels like:</string>
+    <string name="pressure_title">Pressure:</string>
+    <string name="humidity_title">Humidity:</string>
+    <string name="sunrise_title">Sunrise:</string>
+    <string name="sunset_title">Sunset:</string>
+    <string name="daylight_title">Daylight:</string>
+    <string name="wind_speed_title">Wind speed:</string>
+    <string name="wind_deg_title">Wind Direction:</string>
+    <string name="last_updated_content">Last  updated:</string>
+    <string name="reload_toaster">Weatherdata Updated</string>
+</resources>
