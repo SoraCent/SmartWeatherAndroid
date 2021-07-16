@@ -14,7 +14,7 @@
 
         <TextView
             android:id="@+id/WeatherTitle"
-            android:layout_width="331dp"
+            android:layout_width="500dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
@@ -24,7 +24,7 @@
             android:textSize="36sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.583"
+            app:layout_constraintHorizontal_bias="0.662"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
@@ -241,10 +241,10 @@
             android:id="@+id/SunInfo"
             android:layout_width="376dp"
             android:layout_height="98dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.967"
+            app:layout_constraintHorizontal_bias="0.957"
             app:layout_constraintStart_toEndOf="@+id/WindInfo"
             app:layout_constraintTop_toBottomOf="@+id/AirInfo">
 
@@ -320,10 +320,10 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/WindInfo"
-            android:layout_width="376dp"
-            android:layout_height="72dp"
+            android:layout_width="370dp"
+            android:layout_height="64dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"

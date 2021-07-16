@@ -10,7 +10,7 @@
     <string name="dark_title">Activate Dark Theme</string>
     <string name="customImg_title">Weather adjusted backgrounds</string>
     <string name="customImg_summary_on">Shows Weather adjusted backgrounds</string>
-    <string name="customImg_summary_off">Doesn\'t Shows Weather adjusted backgrounds</string>
+    <string name="customImg_summary_off">Doesn\'t Show Weather adjusted backgrounds</string>
     <string name="weather_title">Weather in</string>
     <string name="temperature_title">Temperature</string>
     <string name="min_temp_title">Min. Temperature:</string>
