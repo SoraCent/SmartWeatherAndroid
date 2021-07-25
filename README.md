@@ -1,6 +1,6 @@
 [![forthebadge](https://forthebadge.com/images/badges/0-percent-optimized.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/built-for-android.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/check-it-out.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/made-with-java.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/works-on-my-machine.svg)](https://forthebadge.com)
 # SmartWeatherAndroid
-SmartWeather is a Weather Applikation for Android using the Openweathermap API.
+SmartWeather is a Weather Application for Android using the Openweathermap API.
 
 I made this App for a Course that we had in School.
 
@@ -18,7 +18,7 @@ I made this App for a Course that we had in School.
 - GPS City locate
 
 # How to install and use
-1. Install the APK from the Releases tab
+1. Download the APK from the Releases tab
 2. Install the APK on your Android Phone
 3. Get an API key at [OpenWeatherMap](https://openweathermap.org/)
 4. If the API key is entered, search for a City.
