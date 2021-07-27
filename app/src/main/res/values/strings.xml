@@ -17,6 +17,9 @@
     <string name="customImg_summary_on">Zeigt Wetterangepasste Hintergrundbilder</string>
     <string name="customImg_summary_off">Zeigt keine Wetterangepasste Hintergrundbilder</string>
 
+    <string name="cityinput_hint">Stadtname</string>
+    <string name="searchtitle_text">Noch keine Stadt Eingegeben</string>
+
     <!-- Activity Main Preferences -->
     <string name="weather_title">Wetter in</string>
     <string name="temperature_title">Temperatur</string>
@@ -33,4 +36,25 @@
     <string name="last_updated_content">Zuletzt Aktualisiert:</string>
 
     <string name="reload_toaster">Wetterdaten Aktualisiert</string>
+
+    <string name="nointernet_title">Kein Internet</string>
+    <string name="nointernet_content">Kein Internet\nOhne Internet können keine Daten geladen werden.\nBitte stelle eine Internetverbindung her.</string>
+    <string name="nointernet_button_p">Reload</string>
+    <string name="nointernet_button_n">Schliessen</string>
+
+    <string name="apikeyerror_title">API-Key Fehler</string>
+    <string name="apikeyerror_content">Es gab einen Fehler mit Ihrem API-Key\nBitte den Eintrag anpassen.</string>
+    <string name="apikeyerror_button">Api-key Anpassen</string>
+
+    <string name="noapikey_title">API-Key nicht vorhanden</string>
+    <string name="noapikey_content">Sie haben noch keinen API-Key angegeben\nDer API-Key wird benötigt zum abfragen der Wetterdaten\Bitte einen API-Key Eintragen.</string>
+    <string name="noapikey_button">Api-Key Eintragen</string>
+
+    <string name="citynotfound_title">Stadt nicht gefunden</string>
+    <string name="citynotfound_content">Tut uns Leid\nDie Stadt %1$s konnte nicht gefunden werden.\nBitte erneut eingeben</string>
+    <string name="citynotfound_button">Neue Stadt eingeben</string>
+
+    <string name="nocityentered_title">Keine Stadt angegeben</string>
+    <string name="nocityentered_content">Keine Stadt angegeben\nBitte Stadt eingeben</string>
+    <string name="nocityentered_button">Ok</string>
 </resources>

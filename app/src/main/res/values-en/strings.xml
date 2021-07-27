@@ -25,4 +25,28 @@
     <string name="wind_deg_title">Wind Direction:</string>
     <string name="last_updated_content">Last  updated:</string>
     <string name="reload_toaster">Weatherdata Updated</string>
+
+    <string name="cityinput_hint">Cityname</string>
+    <string name="searchtitle_text">No City entered</string>
+
+    <string name="nointernet_title">No Internet</string>
+    <string name="nointernet_content">No Internet\nWithout an Internet connection, no data can be fetched.\nPlease connect to the internet .</string>
+    <string name="nointernet_button_p">Reload</string>
+    <string name="nointernet_button_n">Close</string>
+
+    <string name="apikeyerror_title">API-Key Error</string>
+    <string name="apikeyerror_content">There was an Error with your API-Key\nPlease change the Key.</string>
+    <string name="apikeyerror_button">Change Api-key</string>
+
+    <string name="noapikey_title">No API-Key entered</string>
+    <string name="noapikey_content">You didn\'t enter the API-Key\nThe API-Key is needed to get the Weatherdata\Please enter an API-Key.</string>
+    <string name="noapikey_button">Enter an Api-Key</string>
+
+    <string name="citynotfound_title">City not found</string>
+    <string name="citynotfound_content">Sorry\nThe City %1$s could not be found.\nPlease enter another City</string>
+    <string name="citynotfound_button">Enter new City</string>
+
+    <string name="nocityentered_title">No City entered</string>
+    <string name="nocityentered_content">No City entered\nPlease enter a City</string>
+    <string name="nocityentered_button">Ok</string>
 </resources>

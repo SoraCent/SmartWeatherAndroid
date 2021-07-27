@@ -479,18 +479,18 @@ public class MainActivity extends AppCompatActivity {
     private void noInternetAlert() {
         AlertDialog.Builder dialogBuilder;
         dialogBuilder = new AlertDialog.Builder(this);
-        dialogBuilder.setPositiveButton("Reload", new DialogInterface.OnClickListener() {
+        dialogBuilder.setPositiveButton(R.string.nointernet_button_p, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         finish();
                         startActivity(getIntent());
                     }
                 });
-                dialogBuilder.setNegativeButton("Schliessen", new DialogInterface.OnClickListener() {
+                dialogBuilder.setNegativeButton(R.string.nointernet_button_n, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         finish();
                     }
                 });
-        dialogBuilder.setMessage("Kein Internet\nOhne Internet können keine Daten geladen werden.\nBitte stelle eine Internetverbindung her.").setTitle("Kein Internet");
+        dialogBuilder.setMessage(R.string.nointernet_content).setTitle(R.string.nointernet_title);
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
     }
@@ -498,13 +498,13 @@ public class MainActivity extends AppCompatActivity {
     private void apiKeyErrorAlert() {
         AlertDialog.Builder dialogBuilder;
         dialogBuilder = new AlertDialog.Builder(this);
-        dialogBuilder.setPositiveButton("Api-key Anpassen", new DialogInterface.OnClickListener() {
+        dialogBuilder.setPositiveButton(R.string.apikeyerror_button, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogInterface, int i) {
                 Intent settings = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(settings);
             }
         });
-        dialogBuilder.setMessage("Es gab einen Fehler mit Ihrem API-Key\nBitte den Eintrag anpassen.").setTitle("API-Key Fehler");
+        dialogBuilder.setMessage(R.string.apikeyerror_content).setTitle(R.string.apikeyerror_title);
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
     }
@@ -512,13 +512,13 @@ public class MainActivity extends AppCompatActivity {
     private void noApiKeyAlert() {
         AlertDialog.Builder dialogBuilder;
         dialogBuilder = new AlertDialog.Builder(this);
-        dialogBuilder.setPositiveButton("Api-Key Eintragen", new DialogInterface.OnClickListener() {
+        dialogBuilder.setPositiveButton(R.string.noapikey_button, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogInterface, int i) {
                 Intent settings = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(settings);
             }
         });
-        dialogBuilder.setMessage("Sie haben noch keinen API-Key angegeben\nDer API-Key wird benötigt zum abfragen der Wetterdaten\nBitte einen API-Key Eintragen.").setTitle("API-Key nicht vorhanden");
+        dialogBuilder.setMessage(R.string.noapikey_content).setTitle(R.string.noapikey_title);
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
     }
@@ -526,13 +526,14 @@ public class MainActivity extends AppCompatActivity {
     private void cityNotFoundAlert(String cityName) {
         AlertDialog.Builder dialogBuilder;
         dialogBuilder = new AlertDialog.Builder(this);
-        dialogBuilder.setPositiveButton("Neue Stadt eingeben", new DialogInterface.OnClickListener() {
+        dialogBuilder.setPositiveButton(R.string.citynotfound_button, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogInterface, int i) {
                 Intent search = new Intent(MainActivity.this, SearchActivity.class);
                 startActivity(search);
             }
         });
-        dialogBuilder.setMessage("Tut uns Leid\nDie Stadt " + cityName + " konnte nicht gefunden werden.\nBitte erneut eingeben").setTitle("Stadt nicht gefunden");
+        String citynotfound = getResources().getString(R.string.citynotfound_content, cityName);
+        dialogBuilder.setMessage(citynotfound).setTitle(R.string.citynotfound_title);
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
     }

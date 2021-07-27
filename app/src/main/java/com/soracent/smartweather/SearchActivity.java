@@ -60,12 +60,12 @@ public class SearchActivity extends AppCompatActivity {
     private void noCityEnteredAlert() {
         AlertDialog.Builder dialogBuilder;
         dialogBuilder = new AlertDialog.Builder(this);
-        dialogBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+        dialogBuilder.setPositiveButton(R.string.nocityentered_button, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogInterface, int i) {
 
             }
         });
-        dialogBuilder.setMessage("Keine Stadt angegeben\nBitte Stadt eingeben").setTitle("Keine Stadt");
+        dialogBuilder.setMessage(R.string.nocityentered_content).setTitle(R.string.nocityentered_title);
         AlertDialog dialog = dialogBuilder.create();
         dialog.show();
     }
