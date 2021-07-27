@@ -18,6 +18,7 @@ I made this App for a Course that we had in School.
 - GPS City locate
 
 # How to install and use
+Download on Google Play: [Download](https://play.google.com/store/apps/details?id=com.soracent.smartweather)
 1. Download the APK from the Releases tab
 2. Install the APK on your Android Phone
 3. Get an API key at [OpenWeatherMap](https://openweathermap.org/)
